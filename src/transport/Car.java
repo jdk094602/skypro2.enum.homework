@@ -1,11 +1,15 @@
 package transport;
 
+import enums.CarBody;
+
 public class Car<T extends Driver> extends Transport implements Participant {
     public final String transportClass = "Автомобиль";
     public char trueCategory = 'B';
 
-    public Car(String brand, String model, float engineVolume, Driver driver) {
+    CarBody carBody;
+    public Car(String brand, String model, float engineVolume, Driver driver, CarBody carBody) {
         super(brand, model, engineVolume, driver);
+        this.carBody = carBody;
     }
     public char getTrueCategory() {
         return trueCategory;
@@ -21,13 +25,20 @@ public class Car<T extends Driver> extends Transport implements Participant {
     }
 
     @Override
+    public String printType() {
+        return carBody != null ? carBody.toString() : "Данных по транспортному средству недостаточно";
+    }
+
+    @Override
     public String toString() {
         return transportClass + " "
                 + getBrand() + ' '
                 + getModel()
                 + ": объём двигателя - " + getEngineVolume()
+                + " " + printType()
                 + "\n"
         ;
     }
 }
+
 

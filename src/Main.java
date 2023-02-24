@@ -1,4 +1,5 @@
 import transport.*;
+import enums.*;
 
 import java.util.Arrays;
 
@@ -116,8 +117,6 @@ printType
 public class Main {
     public static void main(String[] args) {
 
-        // Задание 1
-
         Car<DriverCatB>[] car = new Car[4];         /// массив для объекто класса Car
         Bus<DriverCatD>[] bus = new Bus[4];         /// массив для объекто класса Bus
         Truck<DriverCatC>[] truck = new Truck[4];         /// массив для объекто класса Truck
@@ -130,51 +129,34 @@ public class Main {
         DriverCatD driver3 = new DriverCatD("Труффальдино Из Бергамо", 'D', 33);
 
 
-        System.out.println(driver0);
-        System.out.println(driver1);
-        System.out.println(driver2);
-        System.out.println(driver3);
+//        System.out.println(driver0);
+//        System.out.println(driver1);
+//        System.out.println(driver2);
+//        System.out.println(driver3);
 
-        car[0] = new Car("Lada","Granta",1.7F, null);
-        car[1] = new Car("Audi","A8 50 L TDI quattro",3F,driver0);
-        car[2] = new Car("BMW","Z8",3F,null);
-        car[3] = new Car("KIA","Sportage",2.4F,null);
+
+        car[0] = new Car("Lada","Granta",1.7F, null, CarBody.HATCHBACK );
+        car[1] = new Car("Audi","A8 50 L TDI quattro",3F, driver0, CarBody.SEDAN);
+        car[2] = new Car("BMW","Z8",3F,null,CarBody.COUPE );
+        car[3] = new Car("KIA","Sportage",2.4F,null, CarBody.CROSSOVER);
 
         System.out.println(Arrays.toString(car));
 
-        bus[0] = new Bus("Ikarus","Sport",4.2F, driver1 );
-        bus[1] = new Bus("ЛАЗ","1970",2.0F,null );
-        bus[2] = new Bus("Mercedes","Classic6S",6.6F,null );
-        bus[3] = new Bus("ГАЗ","Газель",2.2F,driver3 );
+        bus[0] = new Bus("Ikarus","Sport",4.2F, driver1, BusCapacity.BIG );
+        bus[1] = new Bus("ЛАЗ","1970",2.0F,null, BusCapacity.MEDIUM );
+        bus[2] = new Bus("Mercedes","Classic6S",6.6F,null, BusCapacity.HUGE );
+        bus[3] = new Bus("ГАЗ","Газель",2.2F,driver3, BusCapacity.TINY );
 
         System.out.println(Arrays.toString(bus));
 
 
-        truck[0] = new Truck<DriverCatC>("MAN","Hero",7.2F,null );
-        truck[1] = new Truck<DriverCatC>("КРАЗ","К800",3.5F,null );
-        truck[2] = new Truck<DriverCatC>("Mercedes","Thunderbolt",6.6F,driver2  );
-        truck[3] = new Truck<DriverCatC>("ГАЗ","66T",3.2F,null );
+        truck[0] = new Truck<DriverCatC>("MAN","Hero",7.2F,null, TruckCapacity.N3 );
+        truck[1] = new Truck<DriverCatC>("КРАЗ","К800",3.5F,null, TruckCapacity.N2 );
+        truck[2] = new Truck<DriverCatC>("Mercedes","Thunderbolt",6.6F,driver2, TruckCapacity.N2  );
+        truck[3] = new Truck<DriverCatC>("ГАЗ","66T",3.2F,null, TruckCapacity.N1 );
 
         System.out.println(Arrays.toString(truck));
 
-        // Задание 3
-
-
-        //      phase2(car);
-                truck[3].bestTimeLap();
-
-        // Задание 4
-
-        System.out.println(truck[0].trueDriver());
-        for (int i=0; i < car.length; i++) {
-            System.out.println(car[i].trueDriver());
-        }
-        for (int i=0; i < truck.length; i++) {
-            System.out.println(truck[i].trueDriver());
-        }
-        for (int i=0; i < bus.length; i++) {
-            System.out.println(bus[i].trueDriver());
-        }
     }
 
 }

@@ -1,5 +1,5 @@
 package transport;
-
+import enums.*;
 public abstract class Transport<T extends Driver>  {
     public final String transportClass = "Транспортное средство";
     public char trueCategory = ' ';
@@ -66,6 +66,7 @@ public abstract class Transport<T extends Driver>  {
         ;
     }
 
+    abstract String printType();
 
     @Override
     public String toString() {
